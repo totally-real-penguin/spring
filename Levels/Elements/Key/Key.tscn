@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://blj6a6ojwxfb4"]
+
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_0lcur"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgt5j"]
+radius = 5.0
+height = 16.0
+
+[node name="Key" type="Area2D"]
+collision_mask = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_0lcur")
+centered = false
+region_enabled = true
+region_rect = Rect2(176, 16, 16, 16)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(8, 7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hgt5j")

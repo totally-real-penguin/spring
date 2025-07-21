@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://usvgv05uxjre"]
+
+[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://GUI/Theme/main.tres" id="1_ycqvh"]
+[ext_resource type="Script" uid="uid://c6tq76l8wpeie" path="res://GUI/MainMenu/main_menu.gd" id="2_voh4k"]
+[ext_resource type="Texture2D" uid="uid://882jmnyqkocq" path="res://GUI/MainMenu/title.png" id="3_voh4k"]
+[ext_resource type="PackedScene" uid="uid://b8msbh8oyid3s" path="res://GUI/Options/Options.tscn" id="4_5iymf"]
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ycqvh")
+script = ExtResource("2_voh4k")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0862745, 0.25098, 1)
+
+[node name="Title" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+offset_left = 48.0
+offset_top = 19.0
+offset_right = 336.0
+offset_bottom = 83.0
+texture = ExtResource("3_voh4k")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 2
+anchor_left = 0.357
+anchor_top = 0.452
+anchor_right = 0.657
+anchor_bottom = 0.583
+offset_left = -0.0880127
+offset_top = -0.0160065
+offset_right = 28.712
+offset_bottom = 6.736
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 2
+anchor_left = 0.357
+anchor_top = 0.635
+anchor_right = 0.657
+anchor_bottom = 0.765
+offset_left = -0.0880127
+offset_top = -0.0800171
+offset_right = 28.712
+offset_bottom = 6.87999
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 2
+anchor_left = 0.357
+anchor_top = 0.817
+anchor_right = 0.657
+anchor_bottom = 0.948
+offset_left = -0.0880127
+offset_top = 0.0639954
+offset_right = 28.712
+offset_bottom = 6.81598
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 32
+text = "Quit Game"
+
+[node name="Options" parent="." instance=ExtResource("4_5iymf")]
+visible = false
+z_index = 1
+layout_mode = 1
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

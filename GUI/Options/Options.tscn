@@ -1,0 +1,139 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8msbh8oyid3s"]
+
+[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://GUI/Theme/main.tres" id="1_60cqk"]
+[ext_resource type="Script" uid="uid://tthgh03xqnev" path="res://GUI/Options/options.gd" id="2_hielu"]
+
+[node name="Options" type="Panel" node_paths=PackedStringArray("music_vol", "music_slider", "audio_vol", "audio_slider")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_60cqk")
+script = ExtResource("2_hielu")
+music_vol = NodePath("CenterContainer/HBoxContainer/GridContainer/AudioControls/MusicHBox/MusicPercentage")
+music_slider = NodePath("CenterContainer/HBoxContainer/GridContainer/AudioControls/MusicHBox/MusicSlider")
+audio_vol = NodePath("CenterContainer/HBoxContainer/GridContainer/AudioControls/AudioHBox/AudioPercentage")
+audio_slider = NodePath("CenterContainer/HBoxContainer/GridContainer/AudioControls/AudioHBox/AudioSlider")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0862745, 0.25098, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(336, 208)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Options" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Options:"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="AudioControls" type="VBoxContainer" parent="CenterContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicText" type="Label" parent="CenterContainer/HBoxContainer/GridContainer/AudioControls"]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="MusicHBox" type="HBoxContainer" parent="CenterContainer/HBoxContainer/GridContainer/AudioControls"]
+layout_mode = 2
+
+[node name="MusicPercentage" type="Label" parent="CenterContainer/HBoxContainer/GridContainer/AudioControls/MusicHBox"]
+custom_minimum_size = Vector2(24, 16)
+layout_mode = 2
+text = "%100"
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/HBoxContainer/GridContainer/AudioControls/MusicHBox"]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+size_flags_horizontal = 2
+value = 100.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="AudioText" type="Label" parent="CenterContainer/HBoxContainer/GridContainer/AudioControls"]
+layout_mode = 2
+text = "Audio Volume"
+
+[node name="AudioHBox" type="HBoxContainer" parent="CenterContainer/HBoxContainer/GridContainer/AudioControls"]
+layout_mode = 2
+
+[node name="AudioPercentage" type="Label" parent="CenterContainer/HBoxContainer/GridContainer/AudioControls/AudioHBox"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "%100"
+
+[node name="AudioSlider" type="HSlider" parent="CenterContainer/HBoxContainer/GridContainer/AudioControls/AudioHBox"]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+size_flags_horizontal = 2
+value = 100.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="VideoControls" type="VBoxContainer" parent="CenterContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WindowStyle" type="OptionButton" parent="CenterContainer/HBoxContainer/GridContainer/VideoControls"]
+layout_mode = 2
+text_overrun_behavior = 1
+clip_text = true
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Fullscreen"
+popup/item_2/id = 2
+
+[node name="AspectRatios" type="OptionButton" parent="CenterContainer/HBoxContainer/GridContainer/VideoControls"]
+layout_mode = 2
+disabled = true
+text_overrun_behavior = 1
+clip_text = true
+selected = 0
+fit_to_longest_item = false
+item_count = 1
+popup/item_0/text = "1280x720"
+popup/item_0/id = 0
+
+[node name="SaveSettings" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.885
+anchor_right = 0.203
+anchor_bottom = 1.0
+offset_top = -0.0800171
+offset_right = 6.048
+offset_bottom = -1.52588e-05
+grow_vertical = 0
+text = "Hide Options"
+
+[connection signal="item_selected" from="CenterContainer/HBoxContainer/GridContainer/VideoControls/WindowStyle" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]

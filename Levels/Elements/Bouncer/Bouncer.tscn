@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5d6f7ji12ndk"]
+
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_ddpk2"]
+
+[node name="Bouncer" type="Area2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ddpk2")
+centered = false
+region_enabled = true
+region_rect = Rect2(112, 32, 16, 16)
+
+[node name="Bounce" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(8, 8)
+texture = ExtResource("1_ddpk2")
+region_enabled = true
+region_rect = Rect2(128, 0, 32, 32)
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(8, 8)
+polygon = PackedVector2Array(-8, 3, -8, -3, -3, -8, 3, -8, 8, -3, 8, 3, 3, 8, -3, 8)

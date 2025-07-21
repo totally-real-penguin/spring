@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://blx5xmf7fu7cj"]
+
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_8sohm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qhsl"]
+size = Vector2(16, 16)
+
+[node name="PinkSwitchBlock" type="Area2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_8sohm")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 128, 16, 16)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_7qhsl")

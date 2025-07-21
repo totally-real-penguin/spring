@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsqvch87gy4m3"]
+
+[ext_resource type="Texture2D" uid="uid://cbqv7espsgu8m" path="res://GUI/PauseMenu/pause.png" id="1_2mjep"]
+[ext_resource type="Script" uid="uid://brodjxgh2102x" path="res://GUI/PauseMenu/pause_menu.gd" id="1_cqli2"]
+[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://GUI/Theme/main.tres" id="1_mqpij"]
+[ext_resource type="PackedScene" uid="uid://b8msbh8oyid3s" path="res://GUI/Options/Options.tscn" id="3_5jsve"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_cqli2")
+
+[node name="Pause" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mqpij")
+
+[node name="Background" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0862745, 0.25098, 0.713726)
+
+[node name="CenterContainer" type="CenterContainer" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PauseText" type="Label" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Resume"
+
+[node name="Options" type="Button" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Options"
+
+[node name="ExitToMenu" type="Button" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Exit to main menu"
+
+[node name="QuitGame" type="Button" parent="Pause/CenterContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Quit Game"
+
+[node name="PauseButton" type="Button" parent="."]
+offset_right = 24.0
+offset_bottom = 24.0
+focus_mode = 0
+icon = ExtResource("1_2mjep")
+flat = true
+
+[node name="Options" parent="." instance=ExtResource("3_5jsve")]
+visible = false
+
+[connection signal="pressed" from="Pause/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/CenterContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Pause/CenterContainer/VBoxContainer/ExitToMenu" to="." method="_on_exit_to_menu_pressed"]
+[connection signal="pressed" from="Pause/CenterContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

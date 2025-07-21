@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7ws7l5r0cdwr"]
+
+[ext_resource type="Script" uid="uid://cffgv7f1gurjs" path="res://Levels/Elements/Spring/spring.gd" id="1_ufi4c"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="2_qf64v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh8vo"]
+size = Vector2(16, 3)
+
+[sub_resource type="Animation" id="Animation_qf64v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ufi4c"]
+resource_name = "Spring"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wh8vo"]
+_data = {
+&"RESET": SubResource("Animation_qf64v"),
+&"Spring": SubResource("Animation_ufi4c")
+}
+
+[node name="Spring" type="Area2D"]
+script = ExtResource("1_ufi4c")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_qf64v")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(16, 32, 32, 16)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_wh8vo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wh8vo")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

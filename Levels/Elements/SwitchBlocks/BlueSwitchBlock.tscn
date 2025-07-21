@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cla455pm572qa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ifq7j"]
+load_path = "res://.godot/imported/tilemap.png-838486f2ee5f5764f6a08fbb86e9df3c.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fq5mi"]
+size = Vector2(16, 16)
+
+[node name="BlueSwitchBlock" type="Area2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_ifq7j")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 144, 16, 16)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_fq5mi")

@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvotitgj3b281"]
+
+[ext_resource type="Script" uid="uid://cnmav0a0mdqlo" path="res://GUI/PlayerUI/player_ui.gd" id="1_0vf7n"]
+[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://GUI/Theme/main.tres" id="1_v5yhq"]
+[ext_resource type="Texture2D" uid="uid://d33yvdnr562ps" path="res://GUI/PlayerUI/jump_symbols.png" id="3_7j2h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2uxv"]
+atlas = ExtResource("3_7j2h3")
+region = Rect2(0, 0, 16, 16)
+
+[node name="PlayerUI" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_0vf7n")
+
+[node name="BottomBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_right = 384.0
+offset_bottom = 208.0
+theme = ExtResource("1_v5yhq")
+
+[node name="ColorRect" type="ColorRect" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1287, 0.133055, 0.39, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="BottomBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="LevelName" type="Label" parent="BottomBar/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level"
+
+[node name="Label" type="Label" parent="BottomBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="CanJump" type="TextureRect" parent="BottomBar/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("AtlasTexture_v2uxv")
+stretch_mode = 3

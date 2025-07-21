@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh2r5hme80mbr"]
+
+[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://GUI/Theme/main.tres" id="1_cj6wk"]
+[ext_resource type="Script" uid="uid://dwdhpn6lcdbse" path="res://GUI/LevelSelect/level_select.gd" id="2_bsmgq"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cj6wk")
+script = ExtResource("2_bsmgq")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0862745, 0.25098, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = 16.0
+offset_right = -27.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Level Select"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 5
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 187.0
+offset_right = 48.0
+offset_bottom = 200.0
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
