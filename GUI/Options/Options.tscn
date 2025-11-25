@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8msbh8oyid3s"]
 
-[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://GUI/Theme/main.tres" id="1_60cqk"]
+[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://Levels/Elements/main.tres" id="1_60cqk"]
 [ext_resource type="Script" uid="uid://tthgh03xqnev" path="res://GUI/Options/options.gd" id="2_hielu"]
 
 [node name="Options" type="Panel" node_paths=PackedStringArray("music_vol", "music_slider", "audio_vol", "audio_slider")]

@@ -10,9 +10,11 @@ func _on_body_exited(body: Node2D) -> void:
 		body.crystal = null
 
 
-func recharge(player) -> void:
+func recharge(player: Player) -> void:
 	if player.can_jump == false:
 		player.can_jump = true
+		if player.velocity.y > 0:
+			player.velocity.y = 0
 		$Sprite.play("recharge")
 		self.monitoring = false
 		await get_tree().create_timer(recharge_time).timeout

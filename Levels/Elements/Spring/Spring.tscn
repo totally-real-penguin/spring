@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7ws7l5r0cdwr"]
+[gd_scene load_steps=8 format=3 uid="uid://b7ws7l5r0cdwr"]
 
 [ext_resource type="Script" uid="uid://cffgv7f1gurjs" path="res://Levels/Elements/Spring/spring.gd" id="1_ufi4c"]
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="2_qf64v"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="2_qf64v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh8vo"]
-size = Vector2(16, 3)
+size = Vector2(16, 1.5)
 
 [sub_resource type="Animation" id="Animation_qf64v"]
 length = 0.001
@@ -67,6 +67,9 @@ _data = {
 &"Spring": SubResource("Animation_ufi4c")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufi4c"]
+size = Vector2(14, 16)
+
 [node name="Spring" type="Area2D"]
 script = ExtResource("1_ufi4c")
 
@@ -77,12 +80,18 @@ region_enabled = true
 region_rect = Rect2(16, 32, 32, 16)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6.5)
+position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_wh8vo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wh8vo")
 }
+
+[node name="Spring" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Spring"]
+shape = SubResource("RectangleShape2D_ufi4c")
+one_way_collision = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

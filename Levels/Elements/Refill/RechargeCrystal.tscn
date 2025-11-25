@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://vrmvlfi8b5t4"]
 
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_quo08"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="1_quo08"]
 [ext_resource type="Script" uid="uid://dm15dp21p8bv8" path="res://Levels/Elements/Refill/recharge_crystal.gd" id="1_v7t2d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7t2d"]

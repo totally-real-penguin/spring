@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvotitgj3b281"]
 
 [ext_resource type="Script" uid="uid://cnmav0a0mdqlo" path="res://GUI/PlayerUI/player_ui.gd" id="1_0vf7n"]
-[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://GUI/Theme/main.tres" id="1_v5yhq"]
+[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://Levels/Elements/main.tres" id="1_v5yhq"]
 [ext_resource type="Texture2D" uid="uid://d33yvdnr562ps" path="res://GUI/PlayerUI/jump_symbols.png" id="3_7j2h3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2uxv"]

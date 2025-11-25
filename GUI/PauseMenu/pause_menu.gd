@@ -25,6 +25,8 @@ func _on_quit_game_pressed() -> void:
 
 func _on_pause_button_pressed() -> void:
 	$Pause.visible = !$Pause.visible
+	paused = !paused
+	get_tree().set_deferred("paused",paused)
 	if $Pause.visible:
 		$PauseButton.icon = preload("res://GUI/PauseMenu/resume.png")
 	else:

@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://b1ihwr7htshoh"]
 
 [ext_resource type="Script" uid="uid://di4ua806shjco" path="res://Levels/Characters/Playable/Player.gd" id="1_cii8e"]
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_l6g0h"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="1_l6g0h"]
 [ext_resource type="PackedScene" uid="uid://cvotitgj3b281" path="res://GUI/PlayerUI/player_ui.tscn" id="3_8gimx"]
 [ext_resource type="PackedScene" uid="uid://bsqvch87gy4m3" path="res://GUI/PauseMenu/pause_menu.tscn" id="4_fh04t"]
-[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://GUI/Theme/main.tres" id="5_guvsc"]
+[ext_resource type="Theme" uid="uid://dsukthfgyban6" path="res://Levels/Elements/main.tres" id="5_guvsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cii8e"]
 size = Vector2(6, 14)
@@ -104,13 +104,14 @@ script = ExtResource("1_cii8e")
 debug_mode = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
 texture = ExtResource("1_l6g0h")
 hframes = 7
 region_enabled = true
 region_rect = Rect2(0, 0, 112, 16)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_cii8e")
 debug_color = Color(0.97, 0.5141, 0.688862, 0.52549)
 
@@ -133,10 +134,10 @@ position_smoothing_speed = 8.0
 
 [node name="StateDisplay" type="Label" parent="."]
 visible = false
-offset_left = -23.0
-offset_top = -21.0
-offset_right = 25.0
-offset_bottom = -8.0
+offset_left = -24.0
+offset_top = -29.0
+offset_right = 24.0
+offset_bottom = -16.0
 theme = ExtResource("5_guvsc")
 text = "State"
 horizontal_alignment = 1
@@ -145,6 +146,26 @@ horizontal_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_y4ysq")
 }
+
+[node name="Keys" type="Node2D" parent="."]
+position = Vector2(0, -7)
+
+[node name="KeyCount" type="Label" parent="Keys"]
+visible = false
+offset_left = -24.0
+offset_top = -16.0
+offset_right = -12.0
+offset_bottom = -3.0
+theme = ExtResource("5_guvsc")
+text = "12"
+horizontal_alignment = 2
+
+[node name="Sprite" type="Sprite2D" parent="Keys"]
+visible = false
+position = Vector2(-18, 1)
+texture = ExtResource("1_l6g0h")
+region_enabled = true
+region_rect = Rect2(176, 16, 16, 16)
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_coyote_jump_timer_timeout"]

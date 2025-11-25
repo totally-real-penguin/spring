@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://lc0tjubghh0c"]
 
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_m851y"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="1_m851y"]
 [ext_resource type="Script" uid="uid://tv8gb6jlncxr" path="res://Levels/tile_map.gd" id="2_52yci"]
 [ext_resource type="PackedScene" uid="uid://b2vxok4sw56jd" path="res://Levels/Elements/Box/Box.tscn" id="3_3l1v5"]
 [ext_resource type="PackedScene" uid="uid://b1ihwr7htshoh" path="res://Levels/Characters/Playable/Player.tscn" id="3_e8dsn"]

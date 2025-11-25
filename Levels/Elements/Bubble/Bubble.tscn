@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyduwbg8gp2ev"]
 
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_vaf0d"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="1_vaf0d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_swfn1"]
 radius = 8.0

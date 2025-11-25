@@ -78,12 +78,25 @@ func _process(delta: float) -> void:
 		can_coyote_jump = true
 		$CoyoteJumpTimer.start()
 	
+	
 	if input_axis > 0:
 		$Sprite.flip_h = false
-		$Sprite.offset.x = 0
+		$Keys.scale.x = 1
+		$Keys/KeyCount.scale.x = 1
+		
 	elif input_axis < 0:
 		$Sprite.flip_h = true
-		$Sprite.offset.x = 2
+		$Keys.scale.x = -1
+		$Keys/KeyCount.scale.x = -1
+
+func update_keys() -> void:
+	$Keys/Sprite.call_deferred("set_visible",false)
+	$Keys/KeyCount.call_deferred("set_visible",false)
+	if keys == 1:
+		$Keys/Sprite.call_deferred("set_visible",true)
+	elif keys > 1:
+		$Keys/KeyCount.call_deferred("set_visible",true)
+		$Keys/KeyCount.text = keys
 
 func update_state() -> void:
 	if self.debug_move == true:

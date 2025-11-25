@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2ahr6lc8qoyh"]
+[gd_scene load_steps=5 format=3 uid="uid://b2ahr6lc8qoyh"]
 
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_gk5s5"]
+[ext_resource type="Script" uid="uid://cnv30owehhnf7" path="res://Levels/Elements/Door/door.gd" id="1_buv28"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="1_gk5s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buv28"]
 size = Vector2(14, 16)
@@ -9,6 +10,7 @@ size = Vector2(14, 16)
 size = Vector2(26, 16)
 
 [node name="Door" type="StaticBody2D"]
+script = ExtResource("1_buv28")
 
 [node name="Tilemap" type="Sprite2D" parent="."]
 texture = ExtResource("1_gk5s5")
@@ -22,6 +24,9 @@ shape = SubResource("RectangleShape2D_buv28")
 
 [node name="KeyChecker" type="Area2D" parent="."]
 position = Vector2(8, 8)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeyChecker"]
 shape = SubResource("RectangleShape2D_bna0x")
+
+[connection signal="body_entered" from="KeyChecker" to="." method="_on_key_checker_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dab4qytv6b1le"]
 
 [ext_resource type="Script" uid="uid://sah1yp1tsuve" path="res://Levels/Elements/Ladder/ladder.gd" id="1_2spjf"]
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_kelu5"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="1_kelu5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2spjf"]
 size = Vector2(12, 15)

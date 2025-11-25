@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5d6f7ji12ndk"]
 
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_ddpk2"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="1_ddpk2"]
 
 [node name="Bouncer" type="Area2D"]
 

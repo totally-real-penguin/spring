@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://blj6a6ojwxfb4"]
+[gd_scene load_steps=4 format=3 uid="uid://blj6a6ojwxfb4"]
 
-[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://tilemap.png" id="1_0lcur"]
+[ext_resource type="Texture2D" uid="uid://6vhmokfjhm40" path="res://Levels/tilemap.png" id="1_0lcur"]
+[ext_resource type="Script" uid="uid://cl1p1m2dhqlq5" path="res://Levels/Elements/Key/key.gd" id="1_hgt5j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgt5j"]
 radius = 5.0
@@ -8,6 +9,7 @@ height = 16.0
 
 [node name="Key" type="Area2D"]
 collision_mask = 3
+script = ExtResource("1_hgt5j")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_0lcur")
@@ -19,3 +21,5 @@ region_rect = Rect2(176, 16, 16, 16)
 position = Vector2(8, 7)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hgt5j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
